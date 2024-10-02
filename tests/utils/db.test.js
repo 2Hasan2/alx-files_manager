@@ -1,6 +1,7 @@
-import dbClient from "../../utils/db";
+/* eslint-disable import/no-named-as-default */
+import dbClient from '../../utils/db';
 
-describe("+ DBClient utility", () => {
+describe('+ DBClient utility', () => {
   before(function (done) {
     this.timeout(10000);
     Promise.all([dbClient.usersCollection(), dbClient.filesCollection()])
@@ -15,15 +16,15 @@ describe("+ DBClient utility", () => {
       .catch((connectErr) => done(connectErr));
   });
 
-  it("+ Client is alive", () => {
+  it('+ Client is alive', () => {
     expect(dbClient.isAlive()).to.equal(true);
   });
 
-  it("+ nbUsers returns the correct value", async () => {
+  it('+ nbUsers returns the correct value', async () => {
     expect(await dbClient.nbUsers()).to.equal(0);
   });
 
-  it("+ nbFiles returns the correct value", async () => {
+  it('+ nbFiles returns the correct value', async () => {
     expect(await dbClient.nbFiles()).to.equal(0);
   });
 });

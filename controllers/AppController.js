@@ -1,5 +1,6 @@
-import redisClient from "../utils/redis";
-import dbClient from "../utils/db";
+/* eslint-disable import/no-named-as-default */
+import redisClient from '../utils/redis';
+import dbClient from '../utils/db';
 
 export default class AppController {
   static getStatus(req, res) {
@@ -13,7 +14,7 @@ export default class AppController {
     Promise.all([dbClient.nbUsers(), dbClient.nbFiles()]).then(
       ([usersCount, filesCount]) => {
         res.status(200).json({ users: usersCount, files: filesCount });
-      }
+      },
     );
   }
 }
